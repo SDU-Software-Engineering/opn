@@ -167,19 +167,13 @@ namespace BankingDotNetCore.Controllers
         /// Functionality: for every account, add positive or negative interest to
         /// the balance of the account.
         /// </summary>
-        /// <remarks>
-        /// {
-        ///	    "name" : "Nicolai",
-        ///	    "id" : 1
-        /// }
-        /// </remarks>
         [HttpPost("accrue-interest")]
-        [Produces(typeof(CustomerDTO))]
-        [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(CustomerDTO))] 
-        public CustomerDTO AccrueInterest([FromBody] Credential credential)
+        [Produces(typeof(string))]
+        [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(string))] 
+        public string AccrueInterest()
         {
             _bank.AccrueInterest();
-            return new CustomerDTO(_bank.Login(credential));
+            return "Interest accrued";
         }
     }
 }
