@@ -60,7 +60,7 @@ namespace BankingDotNetCore.Controllers
         /// <summary>
         /// Create an account for the given user
         /// </summary>
-        /// <param name="credentialAndAccount">JSON object containing credential and account information</param>
+        /// <param name="credentialAndAccount">CredentialAndAccount object containing credential and account information</param>
         /// <remarks>
         /// This is an example of how the JSON should be structured
         /// {
@@ -79,12 +79,10 @@ namespace BankingDotNetCore.Controllers
         [HttpPost("create-account")]
         [Produces(typeof(CustomerDTO))]
         [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(CustomerDTO))]
-        public CustomerDTO CreateAccount([FromBody] JObject credentialAndAccount)
+        public CustomerDTO CreateAccount([FromBody] CredentialAndAccount credentialAndAccount)
         {
-            var credential = credentialAndAccount.GetValue("credential").ToObject<Credential>();
-            var account = credentialAndAccount.GetValue("account").ToObject<Account>();
-            var customer = _bank.Login(credential);
-            customer.AddAccount(account);
+            var customer = _bank.Login(credentialAndAccount.Credential);
+            customer.AddAccount(credentialAndAccount.Account);
             return new CustomerDTO(customer);
         }
 
