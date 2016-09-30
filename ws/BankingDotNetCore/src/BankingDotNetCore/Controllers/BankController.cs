@@ -23,8 +23,7 @@ namespace BankingDotNetCore.Controllers
         /// <remarks>
         /// This is an example of how the JSON should be structured
         /// {
-        ///	    "name" : "Nicolai",
-        ///	    "id" : 1	
+        ///	    "name" : "Nicolai Oksen"
         /// }
         /// </remarks>
         /// <returns>Returns JSON serialized Customer DTO</returns>
@@ -47,7 +46,7 @@ namespace BankingDotNetCore.Controllers
         /// This is an example of how the JSON should be structured
         /// {
         ///	    "name" : "Nicolai",
-        ///	    "id" : 1	
+        ///	    "id" : 1
         /// }
         /// </remarks>
         /// <returns>Returns JSON serialized Customer DTO</returns>

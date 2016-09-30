@@ -16,5 +16,5 @@ dotnet run
 ```
 
 #### Hosted web API
-På [dotnetcore.nbo.codes/api/bank](http://dotnetcore.ws.nbo.codes/api/bank) kører .NET Core web API'et og kan benyttes til at arbejde op imod fra lokale klient programmer.
+På [dotnetcore.ws.nbo.codes/api/bank](http://dotnetcore.ws.nbo.codes/api/bank) kører .NET Core web API'et og kan benyttes til at arbejde op imod fra lokale klient programmer.
 
