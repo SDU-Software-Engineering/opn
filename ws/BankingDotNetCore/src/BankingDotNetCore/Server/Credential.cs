@@ -15,12 +15,6 @@ namespace BankingDotNetCore.Server
         private static int _counter = 0;
 
         /// <summary>
-        /// Used when creating account for the first time. 
-        /// </summary>
-        /// <param name="name">Name of user</param>
-        public Credential(string name) : this(name, NewCredentialId()) { }
-
-        /// <summary>
         /// Credentials used to retrieve accounts
         /// </summary>
         /// <param name="name">Name of user</param>
@@ -35,6 +29,16 @@ namespace BankingDotNetCore.Server
         private static int NewCredentialId()
         {
             return Interlocked.Increment(ref _counter);
+        }
+
+        /// <summary>
+        /// Method used to create a new customer
+        /// </summary>
+        /// <param name="name">Name of customer</param>
+        /// <returns>Credential object with name and ID</returns>
+        public static Credential CreateNewCredential(string name)
+        {
+            return new Credential(name, NewCredentialId());
         }
 
         /// <summary>

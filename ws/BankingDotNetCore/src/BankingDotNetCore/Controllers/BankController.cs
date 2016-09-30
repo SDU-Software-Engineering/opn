@@ -16,23 +16,21 @@ namespace BankingDotNetCore.Controllers
     {
         private readonly IBank _bank = Bank.GetInstance();
 
-        /// <summary>
-        /// Create a new user
-        /// </summary>
-        /// <param name="credential">JSON object containing information</param>
+        ///  <summary>
+        ///  Create a new user
+        ///  </summary>
+        /// <param name="name">Name of customer</param>
         /// <remarks>
-        /// This is an example of how the JSON should be structured
-        /// {
-        ///	    "name" : "Nicolai Oksen"
-        /// }
-        /// </remarks>
-        /// <returns>Returns JSON serialized Customer DTO</returns>
+        ///  This is an example of how the BODY should be structured
+        /// 	"Nicolai Oksen"
+        ///  </remarks>
+        ///  <returns>Returns JSON serialized Customer DTO</returns>
         [HttpPost("create")]
         [Produces(typeof(CustomerDTO))]
         [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(CustomerDTO))]
-        public CustomerDTO Create([FromBody] Credential credential)
+        public CustomerDTO Create([FromBody] string name)
         {
-            //var credential = JsonConvert.DeserializeObject<Credential>(credential.ToString());
+            var credential = Credential.CreateNewCredential(name);
             _bank.AddCustomer(credential);
             var customer = _bank.Login(credential);
             return new CustomerDTO(customer);

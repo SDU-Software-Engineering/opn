@@ -8,9 +8,9 @@ namespace BankingDotNetCore.DTOs
 {
     public class AccountDTO
     {
-        string Name { get; }
-        int Number { get; }
-        float Balance { get; }
+        public string Name { get; }
+        public int Number { get; }
+        public float Balance { get; }
         public AccountDTO(IAccount account)
         {
             Name = account.GetName();
