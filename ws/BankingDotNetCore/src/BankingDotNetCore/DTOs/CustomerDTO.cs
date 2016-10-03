@@ -8,13 +8,13 @@ namespace BankingDotNetCore.DTOs
 {
     public class CustomerDTO
     {
-        public ICredential Credential { get; }
+        public Credential Credential { get; }
 
         public List<AccountDTO> Accounts { get; }
 
         public CustomerDTO(ICustomer customer)
         {
-            Credential = customer.GetCredential();
+            Credential = (Credential)customer.GetCredential();
             Accounts = customer.GetAccounts().Select(x => new AccountDTO(x)).ToList();
         }
     }

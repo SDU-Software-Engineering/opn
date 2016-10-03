@@ -8,8 +8,16 @@ namespace BankingDotNetCore.Server
     /// </summary>
     public class Credential : ICredential
     {
-        private readonly string _name;
-        private readonly int _id;
+        /// <summary>
+        /// Gets the name of the user
+        /// </summary>
+        /// <returns>Name of user</returns>
+        public string Name { get; }
+        /// <summary>
+        /// Gets the ID of the user
+        /// </summary>
+        /// <returns>ID of user</returns>
+        public int Id { get; }
 
         // Counter for account numbers
         private static int _counter = 0;
@@ -21,8 +29,8 @@ namespace BankingDotNetCore.Server
         /// <param name="id">Id for user</param>
         public Credential(string name, int id)
         {
-            _name = name;
-            _id = id;
+            Name = name;
+            Id = id;
         }
 
 	    // Return a new, unique account number
@@ -41,24 +49,12 @@ namespace BankingDotNetCore.Server
             return new Credential(name, NewCredentialId());
         }
 
-        /// <summary>
-        /// Gets the name of the user
-        /// </summary>
-        /// <returns>Name of user</returns>
-        public string GetName() { return _name; }
-
-        /// <summary>
-        /// Gets the ID of the user
-        /// </summary>
-        /// <returns>ID of user</returns>
-        public int GetId() { return _id; }
-
         /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked
             {
-                return ((_name?.GetHashCode() ?? 0) * 397) ^ _id;
+                return ((Name?.GetHashCode() ?? 0) * 397) ^ Id;
             }
         }
 
@@ -73,14 +69,14 @@ namespace BankingDotNetCore.Server
             if (this.GetType() != obj.GetType())
                 return false;
             Credential other = (Credential)obj;
-            if (_id != other._id)
+            if (Id != other.Id)
                 return false;
-            if (_name == null)
+            if (Name == null)
             {
-                if (other._name != null)
+                if (other.Name != null)
                     return false;
             }
-            else if (!_name.Equals(other._name))
+            else if (!Name.Equals(other.Name))
                 return false;
             return true;
         }
