@@ -19,6 +19,11 @@ import dk.sdu.mmmi.opn.swaggerbank.ApiException;
  *
  */
 public class NiceAndFriendlyGUI {
+	
+	/**
+	 * Default server proposed to user
+	 */
+	public static final String SERVER_DEFAULT = "http://dotnetcore.ws.nbo.codes";
 
 	/**
 	 * Frame for starting window
@@ -64,7 +69,7 @@ public class NiceAndFriendlyGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		String hostname = JOptionPane.showInputDialog("Server name?","http://dotnetcore.ws.nbo.codes");
+		String hostname = JOptionPane.showInputDialog("Server name?",SERVER_DEFAULT);
 		controller.connect(hostname);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
