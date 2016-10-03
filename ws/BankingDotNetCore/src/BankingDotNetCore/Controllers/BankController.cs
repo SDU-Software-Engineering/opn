@@ -70,8 +70,8 @@ namespace BankingDotNetCore.Controllers
         ///	    },
         ///	    "account" : {
         ///		    "name" : "Budget Account",
-        ///		    "positiveInterest" : 2.0,
-        ///		    "negativeInterest" : 5.0
+        ///		    "PositiveInterest" : 2.0,
+        ///		    "NegativeInterest" : 5.0
         ///	    }
         /// }
         /// </remarks>
@@ -114,7 +114,7 @@ namespace BankingDotNetCore.Controllers
 
             var customer = _bank.Login(credential);
             foreach (IAccount account in customer.GetAccounts()) {
-			    if(account.GetNumber() == accountId) {
+			    if(account.Number == accountId) {
 				    account.withdraw(amount);
 			        break;
 			    }
@@ -151,7 +151,7 @@ namespace BankingDotNetCore.Controllers
 
             var customer = _bank.Login(credential);
             foreach (IAccount account in customer.GetAccounts()) {
-			    if(account.GetNumber()== accountId) {
+			    if(account.Number == accountId) {
 				    account.deposit(amount);
 			        break;
 			    }
@@ -163,7 +163,7 @@ namespace BankingDotNetCore.Controllers
         /// <summary>
         /// Placeholder for the action that is invoked when you ask to accrue interest
         /// Functionality: for every account, add positive or negative interest to
-        /// the balance of the account.
+        /// the Balance of the account.
         /// </summary>
         [HttpPost("accrue-interest")]
         [Produces(typeof(string))]

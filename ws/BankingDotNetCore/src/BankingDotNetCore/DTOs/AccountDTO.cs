@@ -13,9 +13,9 @@ namespace BankingDotNetCore.DTOs
         public float Balance { get; }
         public AccountDTO(IAccount account)
         {
-            Name = account.GetName();
-            Number = account.GetNumber();
-            Balance = account.GetBalance();
+            Name = account.Name;
+            Number = account.Number;
+            Balance = account.Balance;
         }
 
     }

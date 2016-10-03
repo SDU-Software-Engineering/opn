@@ -26,8 +26,8 @@ namespace BankingDotNetCore.Server
         /// Add a new account for this customer with the given name (account number is automatically generated)
         /// </summary>
         /// <param name="name">account name</param>
-        /// <param name="positiveInterest">the interest to accrue when the balance is positive</param>
-        /// <param name="negativeInterest">the interest to subtract when the balance in negative  </param>
+        /// <param name="positiveInterest">the interest to accrue when the Balance is positive</param>
+        /// <param name="negativeInterest">the interest to subtract when the Balance in negative  </param>
         public void AddAccount(string name, float positiveInterest, float negativeInterest)
         {
             _accounts.Add(new Account(name, positiveInterest, negativeInterest));

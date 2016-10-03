@@ -4,53 +4,39 @@ namespace BankingDotNetCore.Server
 {
     public class Account : IAccount
     {
-        private float balance;
-        private string name;
-        private int number;
-        private float positiveInterest, negativeInterest;
+        public float Balance { get; set; }
+        public string Name { get; }
+        public int Number { get; }
+        public float PositiveInterest { get; }
+        public float NegativeInterest { get; }
         public Account(string name, float positiveInterest, float negativeInterest)
         {
-		    this.name = name;
-		    this.positiveInterest = positiveInterest/100;
-		    this.negativeInterest = negativeInterest/100;
-		    this.number = newAccountNumber();
+		    this.Name = name;
+		    this.PositiveInterest = positiveInterest/100;
+		    this.NegativeInterest = negativeInterest/100;
+		    this.Number = newAccountNumber();
         }
 
         public void accrueInterest()
         {
-            if (balance >= 0)
-                balance *= (1 + positiveInterest);
+            if (Balance >= 0)
+                Balance *= (1 + PositiveInterest);
             else
-                balance *= (1 - negativeInterest);
+                Balance *= (1 - NegativeInterest);
         }
 
         public void deposit(float amount)
         {
-            balance += amount;
-        }
-
-        public float GetBalance()
-        {
-            return balance;
-        }
-
-        public string GetName()
-        {
-            return name;
-        }
-
-        public int GetNumber()
-        {
-            return number;
+            Balance += amount;
         }
 
         public void withdraw(float amount)
         {
-            balance -= amount;
+            Balance -= amount;
         }
 
         /**
-	     * Return a new, unique account number
+	     * Return a new, unique account Number
 	     */
         private static int newAccountNumber()
         {
