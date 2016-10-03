@@ -91,6 +91,7 @@ public class BankController {
 
 	/**
 	 * Create an account for the given user
+	 * @param current 
 	 * @param customer the user
 	 * @param name the name of the account
 	 * @param positiveInterest the interest to accrue when the balance is positive
@@ -98,24 +99,25 @@ public class BankController {
 	 * @throws ApiException 
 	 * @throws RemoteException 
 	 */
-	public void createAccountAction(String name, float positiveInterest, float negativeInterest) throws ApiException {
+	public CustomerDTO createAccountAction(CustomerDTO current, String name, float positiveInterest, float negativeInterest) throws ApiException {
 		CredentialAndAccount caa = new CredentialAndAccount();
-		Credential credential = new Credential();
+		Credential credential = current.getCredential();
 		caa.setCredential(credential);
-		Account account = new Account();
+		Account account = new Account().name(name).positiveInterest(positiveInterest).negativeInterest(negativeInterest);
 		caa.setAccount(account);
-		bank.apiBankCreateAccountPost(caa);
+		return bank.apiBankCreateAccountPost(caa);
 	}
 
 	/**
 	 * Display all accounts of the given customer in the given text area
+	 * @param current 
 	 * @param customer the customer
 	 * @param area the text area
 	 * @throws RemoteException 
 	 */
-	public void refreshAccountsAction(JTextArea area) {
+	public void refreshAccountsAction(CustomerDTO current, JTextArea area) {
 		StringBuffer text = new StringBuffer();
-		for(AccountDTO account: customer.getAccounts())
+		for(AccountDTO account: current.getAccounts())
 			text.append(account.getNumber()+" "+account.getName()+": "+account.getBalance()+"\n");
 		area.setText(text.toString());
 	}
