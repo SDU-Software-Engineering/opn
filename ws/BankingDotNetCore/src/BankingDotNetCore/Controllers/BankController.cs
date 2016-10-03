@@ -106,16 +106,12 @@ namespace BankingDotNetCore.Controllers
         [HttpPost("withdraw")]
         [Produces(typeof(CustomerDTO))]
         [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(CustomerDTO))]
-        public CustomerDTO Withdraw([FromBody] JObject withdraw) 
+        public CustomerDTO Withdraw([FromBody] DepositOrWithdrawDTO withdraw) 
         {
-            var credential = withdraw.GetValue("credential").ToObject<Credential>();
-            var accountId = withdraw.GetValue("accountId").ToObject<int>();
-            var amount = withdraw.GetValue("amount").ToObject<float>();
-
-            var customer = _bank.Login(credential);
+            var customer = _bank.Login(withdraw.Credential);
             foreach (IAccount account in customer.GetAccounts()) {
-			    if(account.Number == accountId) {
-				    account.withdraw(amount);
+			    if(account.Number == withdraw.AccountId) {
+				    account.withdraw(withdraw.Amount);
 			        break;
 			    }
             }
@@ -143,16 +139,12 @@ namespace BankingDotNetCore.Controllers
         [HttpPost("deposit")]
         [Produces(typeof(CustomerDTO))]
         [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(CustomerDTO))]
-        public string DepositAction([FromBody] JObject deposit)
+        public string DepositAction([FromBody] DepositOrWithdrawDTO deposit)
         {
-            var credential = deposit.GetValue("credential").ToObject<Credential>();
-            var accountId = deposit.GetValue("accountId").ToObject<int>();
-            var amount = deposit.GetValue("amount").ToObject<float>();
-
-            var customer = _bank.Login(credential);
+            var customer = _bank.Login(deposit.Credential);
             foreach (IAccount account in customer.GetAccounts()) {
-			    if(account.Number == accountId) {
-				    account.deposit(amount);
+			    if(account.Number == deposit.AccountId) {
+				    account.deposit(deposit.Amount);
 			        break;
 			    }
             }
