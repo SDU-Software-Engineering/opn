@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * AccountDTO
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T10:51:50.823+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T21:24:10.066+02:00")
 public class AccountDTO   {
   @SerializedName("name")
   private String name = null;
@@ -45,6 +45,11 @@ public class AccountDTO   {
   @SerializedName("balance")
   private Float balance = null;
 
+  public AccountDTO name(String name) {
+    this.name = name;
+    return this;
+  }
+
    /**
    * Get name
    * @return name
@@ -52,6 +57,15 @@ public class AccountDTO   {
   @ApiModelProperty(example = "null", value = "")
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public AccountDTO number(Integer number) {
+    this.number = number;
+    return this;
   }
 
    /**
@@ -63,6 +77,15 @@ public class AccountDTO   {
     return number;
   }
 
+  public void setNumber(Integer number) {
+    this.number = number;
+  }
+
+  public AccountDTO balance(Float balance) {
+    this.balance = balance;
+    return this;
+  }
+
    /**
    * Get balance
    * @return balance
@@ -70,6 +93,10 @@ public class AccountDTO   {
   @ApiModelProperty(example = "null", value = "")
   public Float getBalance() {
     return balance;
+  }
+
+  public void setBalance(Float balance) {
+    this.balance = balance;
   }
 
 

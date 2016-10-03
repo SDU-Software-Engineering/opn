@@ -107,9 +107,13 @@ public class NiceAndFriendlyGUI {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.loginAction(txtUsername.getText(),txtUsernumber.getText(),lblStatus);
-					//System.err.println("Network error: "+error);
-					//JOptionPane.showMessageDialog(null, "Network error!");
+				try {
+					controller.loginAction(txtUsername.getText(),txtUsernumber.getText(),lblStatus);
+				} catch (ApiException exn) {
+					System.err.println("Network error: "+exn);
+					exn.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Network error!");
+				}
 			}
 		});
 		btnLogin.setBounds(84, 138, 117, 29);

@@ -82,12 +82,12 @@ public class FriendlyCustomerInteraction extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblCustomerName = new JLabel(customer.getName());
+			JLabel lblCustomerName = new JLabel(customer.getCredential().getName());
 			lblCustomerName.setBounds(6, 6, 137, 16);
 			contentPanel.add(lblCustomerName);
 		}
 		{
-			JLabel lblCustomerNumber = new JLabel(Integer.toString(customer.getId()));
+			JLabel lblCustomerNumber = new JLabel(Integer.toString(customer.getCredential().getId()));
 			lblCustomerNumber.setBounds(187, 8, 58, 16);
 			contentPanel.add(lblCustomerNumber);
 		}

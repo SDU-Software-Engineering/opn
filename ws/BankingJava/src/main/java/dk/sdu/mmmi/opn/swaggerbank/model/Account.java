@@ -26,13 +26,121 @@
 package dk.sdu.mmmi.opn.swaggerbank.model;
 
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 /**
  * Account
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T10:51:50.823+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T21:24:10.066+02:00")
 public class Account   {
+  @SerializedName("balance")
+  private Float balance = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("number")
+  private Integer number = null;
+
+  @SerializedName("positiveInterest")
+  private Float positiveInterest = null;
+
+  @SerializedName("negativeInterest")
+  private Float negativeInterest = null;
+
+  public Account balance(Float balance) {
+    this.balance = balance;
+    return this;
+  }
+
+   /**
+   * Get balance
+   * @return balance
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Float getBalance() {
+    return balance;
+  }
+
+  public void setBalance(Float balance) {
+    this.balance = balance;
+  }
+
+  public Account name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Account number(Integer number) {
+    this.number = number;
+    return this;
+  }
+
+   /**
+   * Get number
+   * @return number
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getNumber() {
+    return number;
+  }
+
+  public void setNumber(Integer number) {
+    this.number = number;
+  }
+
+  public Account positiveInterest(Float positiveInterest) {
+    this.positiveInterest = positiveInterest;
+    return this;
+  }
+
+   /**
+   * Get positiveInterest
+   * @return positiveInterest
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Float getPositiveInterest() {
+    return positiveInterest;
+  }
+
+  public void setPositiveInterest(Float positiveInterest) {
+    this.positiveInterest = positiveInterest;
+  }
+
+  public Account negativeInterest(Float negativeInterest) {
+    this.negativeInterest = negativeInterest;
+    return this;
+  }
+
+   /**
+   * Get negativeInterest
+   * @return negativeInterest
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Float getNegativeInterest() {
+    return negativeInterest;
+  }
+
+  public void setNegativeInterest(Float negativeInterest) {
+    this.negativeInterest = negativeInterest;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -42,12 +150,17 @@ public class Account   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    Account account = (Account) o;
+    return Objects.equals(this.balance, account.balance) &&
+        Objects.equals(this.name, account.name) &&
+        Objects.equals(this.number, account.number) &&
+        Objects.equals(this.positiveInterest, account.positiveInterest) &&
+        Objects.equals(this.negativeInterest, account.negativeInterest);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(balance, name, number, positiveInterest, negativeInterest);
   }
 
   @Override
@@ -55,6 +168,11 @@ public class Account   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Account {\n");
     
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    positiveInterest: ").append(toIndentedString(positiveInterest)).append("\n");
+    sb.append("    negativeInterest: ").append(toIndentedString(negativeInterest)).append("\n");
     sb.append("}");
     return sb.toString();
   }
