@@ -139,7 +139,7 @@ namespace BankingDotNetCore.Controllers
         [HttpPost("deposit")]
         [Produces(typeof(CustomerDTO))]
         [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(CustomerDTO))]
-        public string DepositAction([FromBody] DepositOrWithdrawDTO deposit)
+        public CustomerDTO DepositAction([FromBody] DepositOrWithdrawDTO deposit)
         {
             var customer = _bank.Login(deposit.Credential);
             foreach (IAccount account in customer.GetAccounts()) {
@@ -148,7 +148,7 @@ namespace BankingDotNetCore.Controllers
 			        break;
 			    }
             }
-            return JsonConvert.SerializeObject(new CustomerDTO(customer));
+            return new CustomerDTO(customer);
         }
 
        
