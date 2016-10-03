@@ -110,7 +110,7 @@ public class BankApi {
     }
 
     /**
-     * Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the balance of the account.
+     * Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the Balance of the account.
      * 
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -121,7 +121,7 @@ public class BankApi {
     }
 
     /**
-     * Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the balance of the account.
+     * Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the Balance of the account.
      * 
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -133,7 +133,7 @@ public class BankApi {
     }
 
     /**
-     * Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the balance of the account. (asynchronously)
+     * Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the Balance of the account. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -209,7 +209,7 @@ public class BankApi {
 
     /**
      * Create an account for the given user
-     * This is an example of how the JSON should be structured             {                 \&quot;credential\&quot; : {                  \&quot;name\&quot; : \&quot;Nicolai\&quot;,                  \&quot;id\&quot; : 1                  },                 \&quot;account\&quot; : {                  \&quot;name\&quot; : \&quot;Budget Account\&quot;,                  \&quot;positiveInterest\&quot; : 2.0,                  \&quot;negativeInterest\&quot; : 5.0                 }             }
+     * This is an example of how the JSON should be structured             {                 \&quot;credential\&quot; : {                  \&quot;name\&quot; : \&quot;Nicolai\&quot;,                  \&quot;id\&quot; : 1                  },                 \&quot;account\&quot; : {                  \&quot;name\&quot; : \&quot;Budget Account\&quot;,                  \&quot;PositiveInterest\&quot; : 2.0,                  \&quot;NegativeInterest\&quot; : 5.0                 }             }
      * @param credentialAndAccount CredentialAndAccount object containing credential and account information (optional)
      * @return CustomerDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -221,7 +221,7 @@ public class BankApi {
 
     /**
      * Create an account for the given user
-     * This is an example of how the JSON should be structured             {                 \&quot;credential\&quot; : {                  \&quot;name\&quot; : \&quot;Nicolai\&quot;,                  \&quot;id\&quot; : 1                  },                 \&quot;account\&quot; : {                  \&quot;name\&quot; : \&quot;Budget Account\&quot;,                  \&quot;positiveInterest\&quot; : 2.0,                  \&quot;negativeInterest\&quot; : 5.0                 }             }
+     * This is an example of how the JSON should be structured             {                 \&quot;credential\&quot; : {                  \&quot;name\&quot; : \&quot;Nicolai\&quot;,                  \&quot;id\&quot; : 1                  },                 \&quot;account\&quot; : {                  \&quot;name\&quot; : \&quot;Budget Account\&quot;,                  \&quot;PositiveInterest\&quot; : 2.0,                  \&quot;NegativeInterest\&quot; : 5.0                 }             }
      * @param credentialAndAccount CredentialAndAccount object containing credential and account information (optional)
      * @return ApiResponse&lt;CustomerDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -234,7 +234,7 @@ public class BankApi {
 
     /**
      * Create an account for the given user (asynchronously)
-     * This is an example of how the JSON should be structured             {                 \&quot;credential\&quot; : {                  \&quot;name\&quot; : \&quot;Nicolai\&quot;,                  \&quot;id\&quot; : 1                  },                 \&quot;account\&quot; : {                  \&quot;name\&quot; : \&quot;Budget Account\&quot;,                  \&quot;positiveInterest\&quot; : 2.0,                  \&quot;negativeInterest\&quot; : 5.0                 }             }
+     * This is an example of how the JSON should be structured             {                 \&quot;credential\&quot; : {                  \&quot;name\&quot; : \&quot;Nicolai\&quot;,                  \&quot;id\&quot; : 1                  },                 \&quot;account\&quot; : {                  \&quot;name\&quot; : \&quot;Budget Account\&quot;,                  \&quot;PositiveInterest\&quot; : 2.0,                  \&quot;NegativeInterest\&quot; : 5.0                 }             }
      * @param credentialAndAccount CredentialAndAccount object containing credential and account information (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

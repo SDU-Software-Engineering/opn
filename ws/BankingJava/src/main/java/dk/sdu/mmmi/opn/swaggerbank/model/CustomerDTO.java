@@ -28,6 +28,7 @@ package dk.sdu.mmmi.opn.swaggerbank.model;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import dk.sdu.mmmi.opn.swaggerbank.model.AccountDTO;
+import dk.sdu.mmmi.opn.swaggerbank.model.Credential;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -37,33 +38,30 @@ import java.util.List;
 /**
  * CustomerDTO
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T10:51:50.823+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T21:24:10.066+02:00")
 public class CustomerDTO   {
-  @SerializedName("id")
-  private Integer id = null;
-
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("credential")
+  private Credential credential = null;
 
   @SerializedName("accounts")
   private List<AccountDTO> accounts = new ArrayList<AccountDTO>();
 
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getId() {
-    return id;
+  public CustomerDTO credential(Credential credential) {
+    this.credential = credential;
+    return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get credential
+   * @return credential
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getName() {
-    return name;
+  public Credential getCredential() {
+    return credential;
+  }
+
+  public void setCredential(Credential credential) {
+    this.credential = credential;
   }
 
   public CustomerDTO accounts(List<AccountDTO> accounts) {
@@ -99,14 +97,13 @@ public class CustomerDTO   {
       return false;
     }
     CustomerDTO customerDTO = (CustomerDTO) o;
-    return Objects.equals(this.id, customerDTO.id) &&
-        Objects.equals(this.name, customerDTO.name) &&
+    return Objects.equals(this.credential, customerDTO.credential) &&
         Objects.equals(this.accounts, customerDTO.accounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, accounts);
+    return Objects.hash(credential, accounts);
   }
 
   @Override
@@ -114,8 +111,7 @@ public class CustomerDTO   {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerDTO {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
     sb.append("}");
     return sb.toString();

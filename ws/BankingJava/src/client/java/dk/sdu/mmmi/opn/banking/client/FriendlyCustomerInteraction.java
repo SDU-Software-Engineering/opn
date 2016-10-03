@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dk.sdu.mmmi.opn.swaggerbank.ApiException;
 import dk.sdu.mmmi.opn.swaggerbank.model.CustomerDTO;
 
 import javax.swing.JLabel;
@@ -82,12 +83,12 @@ public class FriendlyCustomerInteraction extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblCustomerName = new JLabel(customer.getName());
+			JLabel lblCustomerName = new JLabel(customer.getCredential().getName());
 			lblCustomerName.setBounds(6, 6, 137, 16);
 			contentPanel.add(lblCustomerName);
 		}
 		{
-			JLabel lblCustomerNumber = new JLabel(Integer.toString(customer.getId()));
+			JLabel lblCustomerNumber = new JLabel(Integer.toString(customer.getCredential().getId()));
 			lblCustomerNumber.setBounds(187, 8, 58, 16);
 			contentPanel.add(lblCustomerNumber);
 		}
@@ -138,8 +139,14 @@ public class FriendlyCustomerInteraction extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				float positive = BankController.percentage2float(interestPos.getText());
 				float negative = BankController.percentage2float(interestNeg.getText());
-				//controller.createAccountAction(FriendlyCustomerInteraction.this.customer,txtName.getText(),positive,negative);
-				//controller.refreshAccountsAction(FriendlyCustomerInteraction.this.customer,txtrAccounts);
+				try {
+					FriendlyCustomerInteraction.this.customer = controller.createAccountAction(FriendlyCustomerInteraction.this.customer,txtName.getText(),positive,negative);
+					controller.refreshAccountsAction(FriendlyCustomerInteraction.this.customer,txtrAccounts);
+				} catch (ApiException exn) {
+					System.err.println("Network error: "+exn);
+					exn.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Network error!");
+				}
 			}
 		});
 		btnCreate.setBounds(61, 91, 117, 29);
@@ -167,7 +174,7 @@ public class FriendlyCustomerInteraction extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 		}
-		//controller.refreshAccountsAction(FriendlyCustomerInteraction.this.customer,txtrAccounts);
+		controller.refreshAccountsAction(FriendlyCustomerInteraction.this.customer,txtrAccounts);
 		
 		JButton btnDeposit = new JButton("Deposit");
 		btnDeposit.addActionListener(new ActionListener() {

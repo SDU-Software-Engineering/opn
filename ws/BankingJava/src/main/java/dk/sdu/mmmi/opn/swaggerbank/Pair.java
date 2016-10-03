@@ -25,7 +25,7 @@
 
 package dk.sdu.mmmi.opn.swaggerbank;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T10:51:50.823+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T21:24:10.066+02:00")
 public class Pair {
     private String name = "";
     private String value = "";

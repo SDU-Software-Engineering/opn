@@ -7,7 +7,10 @@ import javax.swing.JTextArea;
 import dk.sdu.mmmi.opn.banking.client.FriendlyCustomerInteraction;
 import dk.sdu.mmmi.opn.swaggerbank.ApiClient;
 import dk.sdu.mmmi.opn.swaggerbank.ApiException;
+import dk.sdu.mmmi.opn.swaggerbank.model.Account;
 import dk.sdu.mmmi.opn.swaggerbank.model.AccountDTO;
+import dk.sdu.mmmi.opn.swaggerbank.model.Credential;
+import dk.sdu.mmmi.opn.swaggerbank.model.CredentialAndAccount;
 import dk.sdu.mmmi.opn.swaggerbank.model.CustomerDTO;
 import io.swagger.client.api.BankApi;
 
@@ -60,7 +63,7 @@ public class BankController {
 	public int createAction(String name, String number, JLabel status) {
 		try {
 			customer = bank.apiBankCreatePost(name);
-			return customer.getId();
+			return customer.getCredential().getId();
 		} catch (ApiException e) {
 			e.printStackTrace();
 			return -1;
@@ -72,12 +75,13 @@ public class BankController {
 	 * @param name the name of of the user
 	 * @param number the ID of the user as a text-string (must be an integer)
 	 * @param status JLabel in which feedback can be displayed
+	 * @throws ApiException 
 	 * @throws RemoteException 
 	 */
-	public void loginAction(String name, String number, JLabel status) {
+	public void loginAction(String name, String number, JLabel status) throws ApiException {
 		try {
-			//Credential c = bank.apiBankLo
-			//customer = null; //bank.login(new Credential(name, Integer.parseInt(number)));
+			Credential credential = new Credential().name(name).id(Integer.parseInt(number));
+			customer = bank.apiBankLoginPost(credential);
 			status.setText("Login OK");
 			FriendlyCustomerInteraction.open(customer);
 		} catch (NumberFormatException e) {
@@ -87,25 +91,33 @@ public class BankController {
 
 	/**
 	 * Create an account for the given user
+	 * @param current 
 	 * @param customer the user
 	 * @param name the name of the account
 	 * @param positiveInterest the interest to accrue when the balance is positive
 	 * @param negativeInterest the interest to subtract when the balance in negative 
+	 * @throws ApiException 
 	 * @throws RemoteException 
 	 */
-	public void createAccountAction(String name, float positiveInterest, float negativeInterest) {
-		//customer.addAccount(name,positiveInterest,negativeInterest);
+	public CustomerDTO createAccountAction(CustomerDTO current, String name, float positiveInterest, float negativeInterest) throws ApiException {
+		CredentialAndAccount caa = new CredentialAndAccount();
+		Credential credential = current.getCredential();
+		caa.setCredential(credential);
+		Account account = new Account().name(name).positiveInterest(positiveInterest).negativeInterest(negativeInterest);
+		caa.setAccount(account);
+		return bank.apiBankCreateAccountPost(caa);
 	}
 
 	/**
 	 * Display all accounts of the given customer in the given text area
+	 * @param current 
 	 * @param customer the customer
 	 * @param area the text area
 	 * @throws RemoteException 
 	 */
-	public void refreshAccountsAction(JTextArea area) {
+	public void refreshAccountsAction(CustomerDTO current, JTextArea area) {
 		StringBuffer text = new StringBuffer();
-		for(AccountDTO account: customer.getAccounts())
+		for(AccountDTO account: current.getAccounts())
 			text.append(account.getNumber()+" "+account.getName()+": "+account.getBalance()+"\n");
 		area.setText(text.toString());
 	}

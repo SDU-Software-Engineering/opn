@@ -4,7 +4,7 @@ All URIs are relative to *https://localhost/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiBankAccrueInterestPost**](BankApi.md#apiBankAccrueInterestPost) | **POST** /api/Bank/accrue-interest | Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the balance of the account.
+[**apiBankAccrueInterestPost**](BankApi.md#apiBankAccrueInterestPost) | **POST** /api/Bank/accrue-interest | Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the Balance of the account.
 [**apiBankCreateAccountPost**](BankApi.md#apiBankCreateAccountPost) | **POST** /api/Bank/create-account | Create an account for the given user
 [**apiBankCreatePost**](BankApi.md#apiBankCreatePost) | **POST** /api/Bank/create | Create a new user
 [**apiBankDepositPost**](BankApi.md#apiBankDepositPost) | **POST** /api/Bank/deposit | Deposit money on the given account of the given customer
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 # **apiBankAccrueInterestPost**
 > String apiBankAccrueInterestPost()
 
-Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the balance of the account.
+Placeholder for the action that is invoked when you ask to accrue interest             Functionality: for every account, add positive or negative interest to             the Balance of the account.
 
 ### Example
 ```java
@@ -57,7 +57,7 @@ No authorization required
 
 Create an account for the given user
 
-This is an example of how the JSON should be structured             {                 \&quot;credential\&quot; : {                  \&quot;name\&quot; : \&quot;Nicolai\&quot;,                  \&quot;id\&quot; : 1                  },                 \&quot;account\&quot; : {                  \&quot;name\&quot; : \&quot;Budget Account\&quot;,                  \&quot;positiveInterest\&quot; : 2.0,                  \&quot;negativeInterest\&quot; : 5.0                 }             }
+This is an example of how the JSON should be structured             {                 \&quot;credential\&quot; : {                  \&quot;name\&quot; : \&quot;Nicolai\&quot;,                  \&quot;id\&quot; : 1                  },                 \&quot;account\&quot; : {                  \&quot;name\&quot; : \&quot;Budget Account\&quot;,                  \&quot;PositiveInterest\&quot; : 2.0,                  \&quot;NegativeInterest\&quot; : 5.0                 }             }
 
 ### Example
 ```java

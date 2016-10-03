@@ -26,15 +26,59 @@
 package dk.sdu.mmmi.opn.swaggerbank.model;
 
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 /**
  * Credentials used to login a user and retrieve account information
  */
 @ApiModel(description = "Credentials used to login a user and retrieve account information")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T10:51:50.823+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T21:24:10.066+02:00")
 public class Credential   {
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private Integer id = null;
+
+  public Credential name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Gets the name of the user
+   * @return name
+  **/
+  @ApiModelProperty(example = "null", value = "Gets the name of the user")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Credential id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Gets the ID of the user
+   * @return id
+  **/
+  @ApiModelProperty(example = "null", value = "Gets the ID of the user")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,12 +88,14 @@ public class Credential   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    Credential credential = (Credential) o;
+    return Objects.equals(this.name, credential.name) &&
+        Objects.equals(this.id, credential.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(name, id);
   }
 
   @Override
@@ -57,6 +103,8 @@ public class Credential   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Credential {\n");
     
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
