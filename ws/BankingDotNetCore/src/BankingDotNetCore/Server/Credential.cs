@@ -12,12 +12,12 @@ namespace BankingDotNetCore.Server
         /// Gets the name of the user
         /// </summary>
         /// <returns>Name of user</returns>
-        public string Name { get; }
+        public string Name { get; set; }
         /// <summary>
         /// Gets the ID of the user
         /// </summary>
         /// <returns>ID of user</returns>
-        public int Id { get; }
+        public int Id { get; set; }
 
         // Counter for account numbers
         private static int _counter = 0;

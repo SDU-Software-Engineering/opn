@@ -6,9 +6,9 @@
         void deposit(float amount);
         void withdraw(float amount);
         float Balance { get; set; }
-        string Name { get; }
-        int Number { get; }
-        float PositiveInterest { get; }
-        float NegativeInterest { get; }
+        string Name { get; set; }
+        int Number { get; set; }
+        float PositiveInterest { get; set; }
+        float NegativeInterest { get; set; }
     }
 }

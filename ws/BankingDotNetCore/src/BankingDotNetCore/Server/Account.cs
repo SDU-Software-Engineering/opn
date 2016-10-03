@@ -5,10 +5,10 @@ namespace BankingDotNetCore.Server
     public class Account : IAccount
     {
         public float Balance { get; set; }
-        public string Name { get; }
-        public int Number { get; }
-        public float PositiveInterest { get; }
-        public float NegativeInterest { get; }
+        public string Name { get; set; }
+        public int Number { get; set; }
+        public float PositiveInterest { get; set; }
+        public float NegativeInterest { get; set; }
         public Account(string name, float positiveInterest, float negativeInterest)
         {
 		    this.Name = name;

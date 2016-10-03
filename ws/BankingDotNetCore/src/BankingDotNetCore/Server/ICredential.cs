@@ -2,8 +2,8 @@
 {
     public interface ICredential
     {
-        string Name { get; }
+        string Name { get; set; }
 
-        int Id { get; }
+        int Id { get; set; }
     }
 }
