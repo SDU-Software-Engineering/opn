@@ -1,0 +1,2 @@
+swagger-codegen generate -l java -i http://dotnetcore.ws.nbo.codes/swagger/v1/swagger.json --model-package dk.sdu.mmmi.opn.swaggerbank.model
+File -> Import -> Project from file system -> Finish (...and wait for eclipse to do lots of configuration)
