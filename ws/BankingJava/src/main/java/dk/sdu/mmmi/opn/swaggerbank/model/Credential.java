@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Credentials used to login a user and retrieve account information
  */
 @ApiModel(description = "Credentials used to login a user and retrieve account information")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T21:24:10.066+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T22:22:42.534+02:00")
 public class Credential   {
   @SerializedName("name")
   private String name = null;

@@ -27,25 +27,26 @@ package dk.sdu.mmmi.opn.swaggerbank.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import dk.sdu.mmmi.opn.swaggerbank.model.Account;
 import dk.sdu.mmmi.opn.swaggerbank.model.Credential;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 
 /**
- * Class used for creating an account for given credentials.
+ * DepositOrWithdrawDTO
  */
-@ApiModel(description = "Class used for creating an account for given credentials.")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T22:22:42.534+02:00")
-public class CredentialAndAccount   {
+public class DepositOrWithdrawDTO   {
   @SerializedName("credential")
   private Credential credential = null;
 
-  @SerializedName("account")
-  private Account account = null;
+  @SerializedName("amount")
+  private Float amount = null;
 
-  public CredentialAndAccount credential(Credential credential) {
+  @SerializedName("accountId")
+  private Integer accountId = null;
+
+  public DepositOrWithdrawDTO credential(Credential credential) {
     this.credential = credential;
     return this;
   }
@@ -63,22 +64,40 @@ public class CredentialAndAccount   {
     this.credential = credential;
   }
 
-  public CredentialAndAccount account(Account account) {
-    this.account = account;
+  public DepositOrWithdrawDTO amount(Float amount) {
+    this.amount = amount;
     return this;
   }
 
    /**
-   * Account information
-   * @return account
+   * Amount information
+   * @return amount
   **/
-  @ApiModelProperty(example = "null", value = "Account information")
-  public Account getAccount() {
-    return account;
+  @ApiModelProperty(example = "null", value = "Amount information")
+  public Float getAmount() {
+    return amount;
   }
 
-  public void setAccount(Account account) {
-    this.account = account;
+  public void setAmount(Float amount) {
+    this.amount = amount;
+  }
+
+  public DepositOrWithdrawDTO accountId(Integer accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Account ID
+   * @return accountId
+  **/
+  @ApiModelProperty(example = "null", value = "Account ID")
+  public Integer getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(Integer accountId) {
+    this.accountId = accountId;
   }
 
 
@@ -90,23 +109,25 @@ public class CredentialAndAccount   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CredentialAndAccount credentialAndAccount = (CredentialAndAccount) o;
-    return Objects.equals(this.credential, credentialAndAccount.credential) &&
-        Objects.equals(this.account, credentialAndAccount.account);
+    DepositOrWithdrawDTO depositOrWithdrawDTO = (DepositOrWithdrawDTO) o;
+    return Objects.equals(this.credential, depositOrWithdrawDTO.credential) &&
+        Objects.equals(this.amount, depositOrWithdrawDTO.amount) &&
+        Objects.equals(this.accountId, depositOrWithdrawDTO.accountId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credential, account);
+    return Objects.hash(credential, amount, accountId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CredentialAndAccount {\n");
+    sb.append("class DepositOrWithdrawDTO {\n");
     
     sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
-    sb.append("    account: ").append(toIndentedString(account)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

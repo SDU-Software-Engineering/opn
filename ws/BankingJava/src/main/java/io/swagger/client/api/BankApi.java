@@ -40,6 +40,7 @@ import java.io.IOException;
 
 import dk.sdu.mmmi.opn.swaggerbank.model.CredentialAndAccount;
 import dk.sdu.mmmi.opn.swaggerbank.model.CustomerDTO;
+import dk.sdu.mmmi.opn.swaggerbank.model.DepositOrWithdrawDTO;
 import dk.sdu.mmmi.opn.swaggerbank.model.Credential;
 
 import java.lang.reflect.Type;
@@ -368,7 +369,7 @@ public class BankApi {
         return call;
     }
     /* Build call for apiBankDepositPost */
-    private com.squareup.okhttp.Call apiBankDepositPostCall(Object deposit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call apiBankDepositPostCall(DepositOrWithdrawDTO deposit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = deposit;
         
 
@@ -416,7 +417,7 @@ public class BankApi {
      * @return CustomerDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomerDTO apiBankDepositPost(Object deposit) throws ApiException {
+    public CustomerDTO apiBankDepositPost(DepositOrWithdrawDTO deposit) throws ApiException {
         ApiResponse<CustomerDTO> resp = apiBankDepositPostWithHttpInfo(deposit);
         return resp.getData();
     }
@@ -428,7 +429,7 @@ public class BankApi {
      * @return ApiResponse&lt;CustomerDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomerDTO> apiBankDepositPostWithHttpInfo(Object deposit) throws ApiException {
+    public ApiResponse<CustomerDTO> apiBankDepositPostWithHttpInfo(DepositOrWithdrawDTO deposit) throws ApiException {
         com.squareup.okhttp.Call call = apiBankDepositPostCall(deposit, null, null);
         Type localVarReturnType = new TypeToken<CustomerDTO>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -442,7 +443,7 @@ public class BankApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call apiBankDepositPostAsync(Object deposit, final ApiCallback<CustomerDTO> callback) throws ApiException {
+    public com.squareup.okhttp.Call apiBankDepositPostAsync(DepositOrWithdrawDTO deposit, final ApiCallback<CustomerDTO> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -570,7 +571,7 @@ public class BankApi {
         return call;
     }
     /* Build call for apiBankWithdrawPost */
-    private com.squareup.okhttp.Call apiBankWithdrawPostCall(Object withdraw, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call apiBankWithdrawPostCall(DepositOrWithdrawDTO withdraw, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = withdraw;
         
 
@@ -618,7 +619,7 @@ public class BankApi {
      * @return CustomerDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomerDTO apiBankWithdrawPost(Object withdraw) throws ApiException {
+    public CustomerDTO apiBankWithdrawPost(DepositOrWithdrawDTO withdraw) throws ApiException {
         ApiResponse<CustomerDTO> resp = apiBankWithdrawPostWithHttpInfo(withdraw);
         return resp.getData();
     }
@@ -630,7 +631,7 @@ public class BankApi {
      * @return ApiResponse&lt;CustomerDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomerDTO> apiBankWithdrawPostWithHttpInfo(Object withdraw) throws ApiException {
+    public ApiResponse<CustomerDTO> apiBankWithdrawPostWithHttpInfo(DepositOrWithdrawDTO withdraw) throws ApiException {
         com.squareup.okhttp.Call call = apiBankWithdrawPostCall(withdraw, null, null);
         Type localVarReturnType = new TypeToken<CustomerDTO>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -644,7 +645,7 @@ public class BankApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call apiBankWithdrawPostAsync(Object withdraw, final ApiCallback<CustomerDTO> callback) throws ApiException {
+    public com.squareup.okhttp.Call apiBankWithdrawPostAsync(DepositOrWithdrawDTO withdraw, final ApiCallback<CustomerDTO> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

@@ -12,6 +12,7 @@ import dk.sdu.mmmi.opn.swaggerbank.model.AccountDTO;
 import dk.sdu.mmmi.opn.swaggerbank.model.Credential;
 import dk.sdu.mmmi.opn.swaggerbank.model.CredentialAndAccount;
 import dk.sdu.mmmi.opn.swaggerbank.model.CustomerDTO;
+import dk.sdu.mmmi.opn.swaggerbank.model.DepositOrWithdrawDTO;
 import io.swagger.client.api.BankApi;
 
 /**
@@ -129,17 +130,31 @@ public class BankController {
 	 * @param amount the amount of monday to withdraw as text (must be a float)
 	 * @throws RemoteException 
 	 */
-	public void withdrawAction(String accountID, String amount) throws ApiException {
+	public CustomerDTO withdrawAction(CustomerDTO current, String accountID, String amount) throws ApiException {
 		int accountNo = Integer.parseInt(accountID);
 		float amountVal = Float.parseFloat(amount);
-		for(AccountDTO account: customer.getAccounts()) {
+		for(AccountDTO account: current.getAccounts()) {
 			if(account.getNumber()==accountNo) {
-				//account.withdraw(amountVal);
-				return;
+				DepositOrWithdrawDTO withdraw = new DepositOrWithdrawDTO().accountId(accountNo).amount(amountVal).credential(current.getCredential());
+				return bank.apiBankWithdrawPost(withdraw);
 			}
 		}
+		JOptionPane.showMessageDialog(null, "Illegal account number "+accountNo);
+		return current;
 	}
 
+	public CustomerDTO depositAction(CustomerDTO current, String accountID, String amount) throws ApiException {
+		int accountNo = Integer.parseInt(accountID);
+		float amountVal = Float.parseFloat(amount);
+		for(AccountDTO account: current.getAccounts()) {
+			if(account.getNumber()==accountNo) {
+				DepositOrWithdrawDTO withdraw = new DepositOrWithdrawDTO().accountId(accountNo).amount(amountVal).credential(current.getCredential());
+				return bank.apiBankDepositPost(withdraw);
+			}
+		}
+		JOptionPane.showMessageDialog(null, "Illegal account number "+accountNo);
+		return current;
+	}
 	/**
 	 * Deposit money on the given account of the given customer
 	 * @param customer the customer to whom the account belonds
@@ -147,15 +162,17 @@ public class BankController {
 	 * @param amount the amount of monday to deposit as text (must be a float)
 	 * @throws RemoteException 
 	 */
-	public void depositAction(String accountID, String amount) throws ApiException {
+	public CustomerDTO ZdepositAction(CustomerDTO current, String accountID, String amount) throws ApiException {
 		int accountNo = Integer.parseInt(accountID);
 		float amountVal = Float.parseFloat(amount);
-		for(AccountDTO account: customer.getAccounts()) {
+		for(AccountDTO account: current.getAccounts()) {
 			if(account.getNumber()==accountNo) {
-				//account.deposit(amountVal);
-				return;
+				DepositOrWithdrawDTO deposit = new DepositOrWithdrawDTO().accountId(accountNo).amount(amountVal).credential(current.getCredential());
+				return bank.apiBankDepositPost(deposit);
 			}
 		}
+		JOptionPane.showMessageDialog(null, "Illegal account number "+accountNo);
+		return current;
 	}
 
 	/**

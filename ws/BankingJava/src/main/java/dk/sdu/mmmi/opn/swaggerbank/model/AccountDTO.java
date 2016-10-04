@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * AccountDTO
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T21:24:10.066+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-10-03T22:22:42.534+02:00")
 public class AccountDTO   {
   @SerializedName("name")
   private String name = null;

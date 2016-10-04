@@ -157,7 +157,7 @@ This is an example of how the JSON should be structured             {           
 
 
 BankApi apiInstance = new BankApi();
-Object deposit = null; // Object | JSON object containing credentials, account id and withdraw amount
+DepositOrWithdrawDTO deposit = new DepositOrWithdrawDTO(); // DepositOrWithdrawDTO | JSON object containing credentials, account id and withdraw amount
 try {
     CustomerDTO result = apiInstance.apiBankDepositPost(deposit);
     System.out.println(result);
@@ -171,7 +171,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deposit** | **Object**| JSON object containing credentials, account id and withdraw amount | [optional]
+ **deposit** | [**DepositOrWithdrawDTO**](DepositOrWithdrawDTO.md)| JSON object containing credentials, account id and withdraw amount | [optional]
 
 ### Return type
 
@@ -247,7 +247,7 @@ This is an example of how the JSON should be structured             {           
 
 
 BankApi apiInstance = new BankApi();
-Object withdraw = null; // Object | JSON object containing credentials, account id and withdraw amount
+DepositOrWithdrawDTO withdraw = new DepositOrWithdrawDTO(); // DepositOrWithdrawDTO | JSON object containing credentials, account id and withdraw amount
 try {
     CustomerDTO result = apiInstance.apiBankWithdrawPost(withdraw);
     System.out.println(result);
@@ -261,7 +261,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **withdraw** | **Object**| JSON object containing credentials, account id and withdraw amount | [optional]
+ **withdraw** | [**DepositOrWithdrawDTO**](DepositOrWithdrawDTO.md)| JSON object containing credentials, account id and withdraw amount | [optional]
 
 ### Return type
 

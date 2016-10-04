@@ -179,8 +179,14 @@ public class FriendlyCustomerInteraction extends JDialog {
 		JButton btnDeposit = new JButton("Deposit");
 		btnDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//controller.depositAction(FriendlyCustomerInteraction.this.customer,txtNumber.getText(),txtAmount.getText());
-				//controller.refreshAccountsAction(FriendlyCustomerInteraction.this.customer,txtrAccounts);
+				try {
+					FriendlyCustomerInteraction.this.customer = controller.depositAction(FriendlyCustomerInteraction.this.customer,txtNumber.getText(),txtAmount.getText());
+					controller.refreshAccountsAction(FriendlyCustomerInteraction.this.customer,txtrAccounts);
+				} catch (ApiException exn) {
+					System.err.println("Network error: "+exn);
+					exn.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Network error!");
+				}
 			}
 		});
 		btnDeposit.setBounds(36, 170, 85, 29);
@@ -189,8 +195,14 @@ public class FriendlyCustomerInteraction extends JDialog {
 		JButton Withdraw = new JButton("Withdraw");
 		Withdraw.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//controller.withdrawAction(FriendlyCustomerInteraction.this.customer,txtNumber.getText(),txtAmount.getText());
-				//controller.refreshAccountsAction(FriendlyCustomerInteraction.this.customer,txtrAccounts);
+				try {
+					FriendlyCustomerInteraction.this.customer = controller.withdrawAction(FriendlyCustomerInteraction.this.customer,txtNumber.getText(),txtAmount.getText());
+					controller.refreshAccountsAction(FriendlyCustomerInteraction.this.customer,txtrAccounts);
+				} catch (ApiException exn) {
+					System.err.println("Network error: "+exn);
+					exn.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Network error!");
+				}
 			}
 		});
 		Withdraw.setBounds(133, 170, 90, 29);
