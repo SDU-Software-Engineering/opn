@@ -40,5 +40,10 @@ public class Customer extends UnicastRemoteObject implements ICustomer {
 		accounts.add(new Account(name, positiveInterest, negativeInterest));
 	}
 
+	/**
+	 * Counter for customer IDs
+	 */
 	private static final AtomicInteger uniqueId = new AtomicInteger();
+
+	private static final long serialVersionUID = -2441760697704033207L;
 }

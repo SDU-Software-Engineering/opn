@@ -87,4 +87,5 @@ public class Account extends UnicastRemoteObject implements IAccount {
 	 */
 	private static AtomicInteger nextAccountNumber = new AtomicInteger(1000);
 
+	private static final long serialVersionUID = 5131215546456581132L;
 }

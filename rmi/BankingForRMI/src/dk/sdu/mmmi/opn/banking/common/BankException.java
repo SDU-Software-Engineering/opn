@@ -6,4 +6,5 @@ public class BankException extends Exception {
 		super(message);
 	}
 
+	private static final long serialVersionUID = -7862071306121369722L;
 }

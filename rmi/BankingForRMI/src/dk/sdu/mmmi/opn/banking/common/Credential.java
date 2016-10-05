@@ -1,7 +1,6 @@
 package dk.sdu.mmmi.opn.banking.common;
 
 import java.io.Serializable;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Credential implements ICredential, Serializable {
 	private String name;

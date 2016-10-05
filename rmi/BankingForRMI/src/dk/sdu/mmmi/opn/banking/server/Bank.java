@@ -59,4 +59,5 @@ public class Bank extends UnicastRemoteObject implements IBank {
 				a.accrueInterest();
 	}
 
+	private static final long serialVersionUID = 3970923276356185598L;
 }
