@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.opn.banking.view;
+package dk.sdu.mmmi.opn.banking.client;
 
 import java.awt.EventQueue;
 
@@ -14,8 +14,6 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 import javax.swing.JSeparator;
-
-import dk.sdu.mmmi.opn.banking.control.BankController;
 
 /**
  * Simple GUI for the banking example 

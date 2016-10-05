@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.opn.banking.server;
+package dk.sdu.mmmi.opn.banking.common;
 
 public class BankException extends Exception {
 

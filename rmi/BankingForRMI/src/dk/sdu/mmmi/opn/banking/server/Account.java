@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import dk.sdu.mmmi.opn.banking.common.IAccount;
+
 /**
  * Account with balance, name, and number 
  * @author ups

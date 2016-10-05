@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.opn.banking.server;
+package dk.sdu.mmmi.opn.banking.common;
 
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;

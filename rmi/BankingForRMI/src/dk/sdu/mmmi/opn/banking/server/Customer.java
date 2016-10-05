@@ -7,6 +7,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import dk.sdu.mmmi.opn.banking.common.Credential;
+import dk.sdu.mmmi.opn.banking.common.ICredential;
+import dk.sdu.mmmi.opn.banking.common.ICustomer;
+
 /**
  * Customer who has a name, and ID, and a number of accounts
  * @author ups

@@ -1,8 +1,10 @@
-package dk.sdu.mmmi.opn.banking.server;
+package dk.sdu.mmmi.opn.banking.common;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
+
+import dk.sdu.mmmi.opn.banking.server.Account;
 
 /**
  * Customer who has a name, and ID, and a number of accounts

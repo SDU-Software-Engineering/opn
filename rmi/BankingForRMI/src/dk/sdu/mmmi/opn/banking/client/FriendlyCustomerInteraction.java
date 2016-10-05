@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.opn.banking.view;
+package dk.sdu.mmmi.opn.banking.client;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -7,15 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dk.sdu.mmmi.opn.banking.common.ICustomer;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
-import dk.sdu.mmmi.opn.banking.control.BankController;
-import dk.sdu.mmmi.opn.banking.server.ICustomer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

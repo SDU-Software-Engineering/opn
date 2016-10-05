@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.opn.banking.control;
+package dk.sdu.mmmi.opn.banking.client;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -9,15 +9,14 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import dk.sdu.mmmi.opn.banking.common.BankException;
+import dk.sdu.mmmi.opn.banking.common.Credential;
+import dk.sdu.mmmi.opn.banking.common.IAccount;
+import dk.sdu.mmmi.opn.banking.common.IBank;
+import dk.sdu.mmmi.opn.banking.common.ICredential;
+import dk.sdu.mmmi.opn.banking.common.ICustomer;
 import dk.sdu.mmmi.opn.banking.server.Bank;
-import dk.sdu.mmmi.opn.banking.server.BankException;
 import dk.sdu.mmmi.opn.banking.server.BankServer;
-import dk.sdu.mmmi.opn.banking.server.Credential;
-import dk.sdu.mmmi.opn.banking.server.IAccount;
-import dk.sdu.mmmi.opn.banking.server.IBank;
-import dk.sdu.mmmi.opn.banking.server.ICredential;
-import dk.sdu.mmmi.opn.banking.server.ICustomer;
-import dk.sdu.mmmi.opn.banking.view.FriendlyCustomerInteraction;
 
 /**
  * Controller for the banking application: one method for each functionality,
