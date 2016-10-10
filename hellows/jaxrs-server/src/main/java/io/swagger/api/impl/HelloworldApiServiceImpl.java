@@ -13,6 +13,8 @@ import java.io.InputStream;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
+import dk.sdu.mmmi.opn.hellows.HelloServer;
+
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
@@ -21,6 +23,6 @@ public class HelloworldApiServiceImpl extends HelloworldApiService {
     @Override
     public Response helloWorldHello(Person who, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+        return Response.ok().entity(HelloServer.get().hello(who)).build();
     }
 }
