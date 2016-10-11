@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: HelloWorld but no Goodbye
+  description: A minimal example of an OpenAPI web service
+  termsOfService: None
+basePath: /
+paths:
+  /helloworld/hello:
+    post:
+      tags:
+        - Person
+      summary: Say hello to the given user
+      description: |-
+        This is an example of how the JSON should be structured
+                    {
+                        "firstName" : "Nicolai",
+                        "lastName" : "Oksen"
+                    }
+      operationId: HelloWorldHello
+      consumes:
+        - application/json
+        - text/json
+        - application/json-patch+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: who
+          in: body
+          description: Who to say hello to
+          required: false
+          schema:
+            $ref: '#/definitions/Person'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/StatusDTO'
+      deprecated: false
+definitions:
+  Person:
+    description: Description of a person to interact with
+    type: object
+    properties:
+      firstName:
+        description: Gets the name of the user
+        type: string
+      lastName:
+        description: Gets the ID of the user
+        type: string
+  StatusDTO:
+    description: Information about the current status of the server
+    type: object
+    properties:
+      helloCount:
+        format: int32
+        description: Gets the name of the user
+        type: integer
+securityDefinitions: {}
